@@ -35,34 +35,24 @@ internal class Program
 
 		return reversedArray;
 	}
-	
-	private static void ReverseWithoutMemoryAllocation(int[] array)
-	{
-		for (int i = 0; i < array.Length / 2; i++)
-		{
-			int temp = array[i];
-			array[i] = array[array.Length - i - 1];
-			array[array.Length - i - 1] = temp;
-		}
-	}
-	
+
 	private static void PrintArray(int[] array)
 	{
 		Console.Write(array[0]);
 
-		for (int i = 1; i < array.Length; i++)
+		for (var i = 1; i < array.Length; i++)
 			Console.Write(", " + array[i]);
 
 		Console.WriteLine();
 	}
 
-	private static int[] SubArray(int[] array, int index, int count)
+	private static int[] SubArray(IReadOnlyList<int> array, int index, int count)
 	{
-		int[] subArray = new int[count];
+		var subArray = new int[count];
 
-		for (int i = 0; i < count; i++)
+		for (var i = 0; i < count; i++)
 		{
-			if (index < array.Length)
+			if (index < array.Count)
 			{
 				subArray[i] = array[index];
 			}
