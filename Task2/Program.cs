@@ -71,8 +71,8 @@ internal static class Program
 	{
 		int sum = 0;
 
-		for (int i = 0; i < array.Length; i++)
-			sum += array[i];
+		foreach (var t in array)
+			sum += t;
 
 		return sum;
 	}
